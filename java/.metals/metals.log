@@ -3079,3 +3079,85 @@ WARNING: Unmatched cancel notification for request id 1947
 2024.10.07 17:07:29 INFO  no build target found for /workspaces/languages-barent/java/hello-world-scala/src/main/scala/HelloWorldServer.scala. Using presentation compiler with project's scala-library version: 3.3.3
 Oct 07, 2024 5:07:43 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+2024.10.07 17:08:08 INFO  no build target found for /workspaces/languages-barent/java/hello-world-scala/src/main/scala/HelloWorldServer.scala. Using presentation compiler with project's scala-library version: 3.3.3
+2024.10.07 17:08:13 INFO  Shutting down server
+2024.10.07 17:08:13 INFO  shutting down Metals
+Oct 07, 2024 5:08:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint notify
+INFO: Failed to send notification message.
+org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.nio.channels.AsynchronousCloseException
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.notify(RemoteEndpoint.java:135)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.sendCancelNotification(RemoteEndpoint.java:191)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint$1.cancel(RemoteEndpoint.java:160)
+	at scala.meta.internal.metals.utils.RequestRegistry.$anonfun$register$5(RequestRegistry.scala:78)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.scala:17)
+	at scala.util.Try$.apply(Try.scala:217)
+	at scala.meta.internal.metals.utils.RequestRegistry.$anonfun$register$4(RequestRegistry.scala:78)
+	at scala.meta.internal.metals.Cancelable$$anon$1.cancel(Cancelable.scala:18)
+	at scala.meta.internal.metals.Cancelable$.$anonfun$cancelAll$1(Cancelable.scala:29)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at scala.meta.internal.metals.Cancelable$.cancelAll(Cancelable.scala:28)
+	at scala.meta.internal.metals.MutableCancelable.cancel(MutableCancelable.scala:25)
+	at scala.meta.internal.metals.utils.RequestRegistry.cancel(RequestRegistry.scala:94)
+	at scala.meta.internal.metals.BuildServerConnection.cancel(BuildServerConnection.scala:450)
+	at scala.meta.internal.bsp.BspSession.$anonfun$cancel$1(BspSession.scala:34)
+	at scala.meta.internal.bsp.BspSession.$anonfun$cancel$1$adapted(BspSession.scala:34)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at scala.meta.internal.bsp.BspSession.cancel(BspSession.scala:34)
+	at scala.meta.internal.metals.Cancelable$.$anonfun$cancelAll$1(Cancelable.scala:29)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at scala.meta.internal.metals.Cancelable$.cancelAll(Cancelable.scala:28)
+	at scala.meta.internal.metals.MutableCancelable.cancel(MutableCancelable.scala:25)
+	at scala.meta.internal.metals.MetalsLspService.cancel(MetalsLspService.scala:142)
+	at scala.meta.internal.metals.MetalsLspService.onShutdown(MetalsLspService.scala:706)
+	at scala.meta.internal.metals.WorkspaceLspService.$anonfun$shutdown$2(WorkspaceLspService.scala:1305)
+	at scala.meta.internal.metals.WorkspaceLspService.$anonfun$shutdown$2$adapted(WorkspaceLspService.scala:1305)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at scala.meta.internal.metals.WorkspaceLspService.shutdown(WorkspaceLspService.scala:1305)
+	at scala.meta.metals.MetalsLanguageServer.shutdown(MetalsLanguageServer.scala:248)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:128)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:271)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:201)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:203)
+	at java.base/sun.nio.ch.SinkChannelImpl.endWrite(SinkChannelImpl.java:299)
+	at java.base/sun.nio.ch.SinkChannelImpl.write(SinkChannelImpl.java:322)
+	at java.base/sun.nio.ch.ChannelOutputStream.writeFully(ChannelOutputStream.java:68)
+	at java.base/sun.nio.ch.ChannelOutputStream.write(ChannelOutputStream.java:102)
+	at java.base/java.io.OutputStream.write(OutputStream.java:124)
+	at java.base/sun.nio.ch.ChannelOutputStream.write(ChannelOutputStream.java:79)
+	at scala.meta.internal.metals.ClosableOutputStream.write(ClosableOutputStream.scala:26)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:139)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:110)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:67)
+	... 44 more
+
+2024.10.07 17:08:13 INFO  Java targets not supported by server
+Oct 07, 2024 5:08:13 PM org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer fireError
+SEVERE: Missing header Content-Length in input "{"result":{"targets":[{"id":{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root"},"displayName":"root","baseDirectory":"file:///workspaces/languages-wmacevoy/functional/hello-world-scala","tags":["library"],"languageIds":["scala","java"],"dependencies":[],"capabilities":{"canCompile":true,"canTest":true,"canRun":true,"canDebug":true},"dataKind":"scala","data":{"scalaOrganization":"org.scala-lang","scalaVersion":"2.13.12","scalaBinaryVersion":"2.13","platform":1,"jars":["file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.12/scala-compiler-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.12/scala-reflect-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.22.0/jline-3.22.0.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar"],"jvmBuildTarget":{"javaHome":"file:///usr/lib/jvm/msopenjdk-current/"}}},{"id":{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root-test"},"displayName":"root-test","baseDirectory":"file:///workspaces/languages-wmacevoy/functional/hello-world-scala","tags":["test"],"languageIds":["scala","java"],"dependencies":[{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root"}],"capabilities":{"canCompile":true,"canTest":true,"canRun":true,"canDebug":true},"dataKind":"scala","data":{"scalaOrganization":"org.scala-lang","scalaVersion":"2.13.12","scalaBinaryVersion":"2.13","platform":1,"jars":["file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.12/scala-compiler-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.12/scala-reflect-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.22.0/jline-3.22.0.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar"],"jvmBuildTarget":{"javaHome":"file:///usr/lib/jvm/msopenjdk-current/"}}}]},"id":"14","jsonrpc":"2.0"}Content-Length: 39
+
+"
+java.lang.IllegalStateException: Missing header Content-Length in input "{"result":{"targets":[{"id":{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root"},"displayName":"root","baseDirectory":"file:///workspaces/languages-wmacevoy/functional/hello-world-scala","tags":["library"],"languageIds":["scala","java"],"dependencies":[],"capabilities":{"canCompile":true,"canTest":true,"canRun":true,"canDebug":true},"dataKind":"scala","data":{"scalaOrganization":"org.scala-lang","scalaVersion":"2.13.12","scalaBinaryVersion":"2.13","platform":1,"jars":["file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.12/scala-compiler-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.12/scala-reflect-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.22.0/jline-3.22.0.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar"],"jvmBuildTarget":{"javaHome":"file:///usr/lib/jvm/msopenjdk-current/"}}},{"id":{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root-test"},"displayName":"root-test","baseDirectory":"file:///workspaces/languages-wmacevoy/functional/hello-world-scala","tags":["test"],"languageIds":["scala","java"],"dependencies":[{"uri":"file:/workspaces/languages-wmacevoy/functional/hello-world-scala?id=root"}],"capabilities":{"canCompile":true,"canTest":true,"canRun":true,"canDebug":true},"dataKind":"scala","data":{"scalaOrganization":"org.scala-lang","scalaVersion":"2.13.12","scalaBinaryVersion":"2.13","platform":1,"jars":["file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.12/scala-compiler-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.12/scala-reflect-2.13.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.22.0/jline-3.22.0.jar","file:///home/vscode/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar"],"jvmBuildTarget":{"javaHome":"file:///usr/lib/jvm/msopenjdk-current/"}}}]},"id":"14","jsonrpc":"2.0"}Content-Length: 39
+
+"
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2024.10.07 17:08:13 INFO  Exiting server
