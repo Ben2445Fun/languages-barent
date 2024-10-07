@@ -8,6 +8,8 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-actor-typed" % "[2.6,3.0)",  // Allows any version from 2.6.x up to (but not including) 3.0
       "com.typesafe.akka" %% "akka-http"        % "[10.2,11.0)", // Allows any version from 10.2.x up to (but not including) 11.0
-      "com.typesafe.akka" %% "akka-stream"      % "[2.6,3.0)"   // Allows any version from 2.6.x up to (but not including) 3.0
+      "com.typesafe.akka" %% "akka-stream"      % "[2.6,3.0)",   // Allows any version from 2.6.x up to (but not including) 3.0
+      "org.json4s"        %% "json4s-native"    % "4.0.6",
+      "org.json4s"        %% "json4s-jackson"   % "4.0.6"
     )
   )
