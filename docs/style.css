@@ -1,35 +1,56 @@
 body {
   font-family: monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  background-color: #444;
+  color: #eee;
 }
 
-.collapsible {
-  font-family: monospace;
+.title {
   text-align: center;
-  background-color: slategray;
-  color: white;
-  cursor: pointer;
-  padding: 8px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 16px;
-  border-radius: 4px;
+  font-size: xx-large;
+}
+
+.block {
+  padding: auto;
   width: 100%;
 }
 
-.content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: #f9f9f9;
-  transition: max-height 0.3s ease-out;
-  padding: 0 10px;
+/*Collapsible section*/
+.collapsible {
+  background-color: #007;
+  color: #eee;
+  cursor: pointer;
+  padding: 0 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
 }
 
-.content p {
-  margin: 10px 0;
+/*For the content of the collapsible*/
+.content {
+  padding: 0 16px;
+  background-color: #00A;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/*When content is hovered*/
+.active,
+.collapsible:hover {
+  background-color: #00A;
+}
+
+/*Symbol for when content is not expanded*/
+.collapsible:after {
+  content: '\02795';
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+/*Symbol for when content is expanded*/
+.active:after {
+  content: "\2796";
 }
