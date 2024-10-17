@@ -1,23 +1,23 @@
 {
-    "name": "hangman-app",
-    "version": "1.0.0",
-    "description": "A multi-user Hangman game using Node.js and PostgreSQL.",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "dev": "nodemon app.js"
-    },
-    "author": "Your Name",
-    "license": "MIT",
-    "dependencies": {
-        "dotenv": "^16.0.3",
-        "express": "^4.21.1",
-        "pg": "^8.10.0"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.7"
-    },
-    "engines": {
-        "node": ">=14.0.0"
-    }
+  "name": "hangman-app",
+  "version": "1.0.0",
+  "description": "Hangman",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.21.1",
+    "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
