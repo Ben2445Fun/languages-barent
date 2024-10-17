@@ -23,3 +23,16 @@ const getRandomWord = async () => {
   );
   return result.rows.length > 0 ? result.rows[0].word : "default";
 };
+
+app.post("/register", async (req, res) => {
+  const { username } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO users (username) VALUES ($1) RETURNING *",
+      [username]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
